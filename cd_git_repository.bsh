@@ -1,0 +1,39 @@
+#!/bin/bash
+
+
+
+
+function isGitRootDir()
+{
+	_PATH=$1
+	cd $_PATH
+	
+	test -d .git
+	RES=$?
+	
+	cd -
+	return $RES
+}
+
+alias dirname=/usr/bin/dirname
+
+
+currentDir=$(pwd)
+
+while test $currentDir != "/"
+do
+	
+	isGitRootDir $currentDir
+	is_git_root_dir_res=$?
+	if test $is_git_root_dir_res -eq 0
+	then
+		#echo "Entering $currentDir"
+		cd $currentDir
+		return 0
+	else
+		#echo "$currentDir is not ($is_git_root_dir_res) a git repository"
+		currentDir=$(/usr/bin/dirname $currentDir)
+	fi
+done
+
+echo "You're not in a git repository." 1>&2;
