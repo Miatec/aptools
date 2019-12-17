@@ -1,0 +1,53 @@
+#!/bin/bash
+
+
+function displayHelp()
+{
+	echo "Displaying help"
+}
+
+TRUE="true"
+FALSE="false"
+
+_vebose=$FALSE
+_option1=""
+_option2=$FALSE
+
+function handleArgs()
+{
+	for arg in $@
+	do
+		case $arg in
+			-h|--help)
+				displayHelp
+				;;
+			-v|--verbose)
+				_verbose=$TRUE
+				;;
+			-o2|--option2)
+				_option2=$TRUE
+				;;
+
+			-o1=*|--option1=*)
+				_option1=${arg#*=}
+				;;
+			*)
+				displayHelp
+				;;
+		esac
+	done
+
+	if [[ "$_verbose" = "$TRUE" ]]
+	then
+		echo "=== Initialisation of script:"
+		echo "_verbose=$_verbose"
+		echo "_option1=$_option1"
+		echo "_option2=$_option2"
+	fi
+
+}
+
+
+
+
+handleArgs $@
