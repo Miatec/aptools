@@ -29,7 +29,7 @@ function handleArgs()
 				;;
 
 			-o1=*|--option1=*)
-				_option1=${arg#*=}
+				_option1=${arg#*=} # store in $_option1 everything AFTER "=" character inside $arg
 				;;
 			*)
 				displayHelp

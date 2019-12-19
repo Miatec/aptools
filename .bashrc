@@ -9,7 +9,7 @@ echo "You may want to source /freeware/SETUP.SH"
 
 echo "Updating JAVA_HOME  GRADLE_HOME, PATH, M2_HOME and O2_HOME"
 export JAVA_HOME=/freeware/linux/opt/jdk1.8.0_181
-export PATH=$JAVA_HOME/bin:$GRADLE_HOME:$PATH:~/.scripts/
+export PATH=$JAVA_HOME/bin:$GRADLE_HOME:$PATH:/home/s0068661/.scripts/
 export O2_HOME=/home/s0068661/local/SP_GMR/sp_bb/../../O2/current/o2_linux64
 
 export M2_HOME="/home/s0068661/local/Software/apache-maven-3.6.1"
@@ -69,7 +69,7 @@ alias sshbackend="ssh sf500@$BACKEND_IP -X"
 
 function cdgr()
 {
-	source ~/.scripts/cd_git_repository.bsh > /dev/null
+	source /home/s0068661/.scripts/cd_git_repository.bsh > /dev/null
 }
 
 function meld_()
@@ -90,10 +90,43 @@ function llfind()
 	find $@ -exec ls -l {} \;
 }
 
+function logfind()
+{
+	fileRes=$(mktemp --suffix __find_results)
+	fileErr=$(mktemp --suffix __find_errors)
+	find $@ > $fileRes 2> $fileErr
+	resFind=$?
+
+	nbRes=$(wc -l < $fileRes)
+	nbErr=$(wc -l < $fileErr)
+	echo "'find $@' returned : "
+	echo "$nbRes results in $fileRes"
+	echo "$nbErr Errors in $fileErr"
+	echo "find return errorcode is $resFind"
+	return $resFind	
+}
+
+
 function vgrep()
 {
 	grep -v $@
 }
+
+
+function mvdate()
+{
+	fileToRemove=$1
+	fullpath=$(realpath $fileToRemove)
+	pathdir=$(dirname $fileToRemove)
+	filename=$(basename $fullpath)
+	now=$(date +%Y%m%d_%H%M%S)
+	newPathName=$pathdir/${filename}_${now}.archiva
+	mv $fileToRemove $newPathName
+	echo $fileToRemove archived in $newPathName
+}
+
+
+alias bashrc='source ~/.bashrc'
 
 #function vlgrep()
 #{
