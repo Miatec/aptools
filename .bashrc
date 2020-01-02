@@ -85,9 +85,20 @@ function crassersi()
 	ssh 10.97.58.19
 }
 
+
+# always display ls -l for result for find.
 function llfind()
 {
 	find $@ -exec ls -l {} \;
+}
+
+
+# time sorted find
+function tsfind()
+{
+	find . -iname $@ -printf "%T@ %Tc %u:%g %m %p %l\n" \
+		| sort -n \
+		| cut -d' ' -f1 --complement
 }
 
 function logfind()
