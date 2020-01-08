@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+cat input-test-colorit.txt | ../src/colorit

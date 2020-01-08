@@ -1,0 +1,22 @@
+warn lorem ipsum
+Warn  lorem ipsum
+Warning  lorem ipsu
+WARNING  lorem ipsum
+WarNing  lorem ipsum
+
+ERROR  lorem ipsum
+error  lorem ipsum
+Error  lorem ipsum
+
+warn error lorem ipsum
+error warn lorem ipsum
+
+no color
+
+color no
+
+color info
+color INFORMATION
+
+color debug
+colore DEBUG

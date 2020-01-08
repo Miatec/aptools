@@ -1,0 +1,55 @@
+#!/usr/bin/awk -f 
+
+BEGIN {
+	print init
+	IGNORECASE=1
+	BASH_COLOR_CODE_RED="\033[31m"
+	BASH_COLOR_CODE_YELLOW="\033[33m"
+	BASH_COLOR_CODE_GREEN="\033[32m"
+	BASH_COLOR_CODE_BLUE="\033[34m"
+	BASH_COLOR_CODE_DEFAULT="\033[39m"
+	
+	nbErrors=0
+	nbWarning=0
+	nbInfo=0
+	nbDebug=0
+}
+
+{ 
+	if ( /error/)
+	{
+		print  BASH_COLOR_CODE_RED" "$0" "BASH_COLOR_CODE_DEFAULT  
+		nbErrors++		
+	}
+	else if ( /warn/ )
+	{
+		print  BASH_COLOR_CODE_YELLOW" "$0" "BASH_COLOR_CODE_DEFAULT 
+		nbWarning++
+	}
+	else if ( /info/ )
+	{	
+		print  BASH_COLOR_CODE_GREEN" "$0" "BASH_COLOR_CODE_DEFAULT 
+		nbInfo++
+	}
+	else if ( /debug/ )
+	{
+		print  BASH_COLOR_CODE_BLUE" "$0" "BASH_COLOR_CODE_DEFAULT 
+		nbDebug++
+	}
+	else
+		print $0
+}
+
+END {
+	
+	print ""
+	print "=================="
+	print "==  ABSTRACT :  =="
+	print "=================="
+	print " "nbErrors" errors lines"
+	print " "nbWarning" warning lines"
+	print " "nbInfo" information lines"
+	print " "nbDebug" debugs lines"
+	print "=================="
+}
+
