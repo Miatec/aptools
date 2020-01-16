@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Author : Alexandre PIN
+# 
+# ARG1 : file:linenumber (grep -r style)
+#
+# The aim of this script is to copy past 'grep -n' output directly in lvim command to open vim at the expected linenumber position"
 
 function printhelp()
 {

@@ -1,5 +1,16 @@
 #!/usr/bin/awk -f 
 
+
+# Author : Alexandre PIN
+# 
+# This script colors  lines (Red, yellow, ...) if classical keywords appears : Error, Warning etc.
+#
+# usage :
+# ./SomeCommand | colorit
+
+
+
+
 BEGIN {
 	print init
 	IGNORECASE=1
@@ -16,7 +27,7 @@ BEGIN {
 }
 
 { 
-	if ( /error/)
+	if ( /error/ )
 	{
 		print  BASH_COLOR_CODE_RED" "$0" "BASH_COLOR_CODE_DEFAULT  
 		nbErrors++		
@@ -37,7 +48,9 @@ BEGIN {
 		nbDebug++
 	}
 	else
+	{
 		print $0
+	}
 }
 
 END {
