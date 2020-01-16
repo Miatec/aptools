@@ -1,0 +1,32 @@
+#!/bin/bash
+
+
+function printhelp()
+{
+	echo "usage : $0 filename:linenumber"
+	echo ""
+	echo "The aim is to copy past 'grep -n' output directly in command line"
+}
+
+
+_fileWithLine=$1
+
+if [[ "$1" == "" ]]
+then
+	printhelp
+fi
+ 
+
+_file=$(echo $_fileWithLine | cut -d: -f1)
+_line=$(echo $_fileWithLine | cut -d: -f2)
+
+_lineOption=""
+
+if [[ "$_line" == "$_file" ]]
+then
+	_lineOption=""
+else
+	_lineOption="+${_line}"
+fi
+
+vim $_lineOption $_file
