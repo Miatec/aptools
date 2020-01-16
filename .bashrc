@@ -124,6 +124,7 @@ function vgrep()
 }
 
 
+# this function rename a file by its own name with the suffix '_${date_hour}.archiva'
 function mvdate()
 {
 	fileToRemove=$1
@@ -136,6 +137,24 @@ function mvdate()
 	echo $fileToRemove archived in $newPathName
 }
 
+
+function tarzfoldernow()
+{
+	local folder=$1
+	local folderName=$(basename $folder)
+	local now=$(date +%Y%m%d_%H%M%S)
+	local archivaName=${folderName}_${now}.tgz
+	tar -czf $archivaName $folder
+	local tarRes=$?
+	if [[ "$tarRes" == "0" ]]
+	then 
+		echo "[SUCCESS] $folder compressed in $archivaName"
+	else
+		echo "[ FAIL  ] compression of $folder failed"
+	fi
+
+	return $tarRes
+}
 
 alias bashrc='source ~/.bashrc'
 
