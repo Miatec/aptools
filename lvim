@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Author : Alexandre PIN
+# Author : Miatec
 # 
 # ARG1 : file:linenumber (grep -r style)
 #

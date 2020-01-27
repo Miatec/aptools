@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f 
 
 
-# Author : Alexandre PIN
+# Author : Miatec
 # 
 # This script colors  lines (Red, yellow, ...) if classical keywords appears : Error, Warning etc.
 #

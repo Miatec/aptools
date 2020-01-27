@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Alexandre PIN - 11/12/19
+# Miatec - 11/12/19
 # This script check every xml file in the working directory (or the one in parameter)
 # The incorrect files names are stored in bad_xml_files.txt
 

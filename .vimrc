@@ -1,4 +1,4 @@
-"# VIMRC par Alexandre PIN
+"# VIMRC par Miatec
 
 
 

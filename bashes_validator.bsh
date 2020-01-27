@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Alexandre PIN - 13/12/19
+# Miatec - 13/12/19
 # This script check every bash file in the working directory (or the one in parameter)
 # The incorrect files names are stored in bad_bash_files.txt
 

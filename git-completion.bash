@@ -2,7 +2,7 @@
 # bash/zsh completion support for core Git.
 # 
 #	Copied the 17/12/2019 from https://github.com/git/git/edit/master/contrib/completion/git-completion.bash
-# 	By Alexandre PIN
+# 	By Miatec
 #
 #
 # Copyright (C) 2006,2007 Shawn O. Pearce <spearce@spearce.org>
