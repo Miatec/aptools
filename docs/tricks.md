@@ -25,6 +25,7 @@
 
 ## VIM
 * Exit from a `CTRL + S` : `CTRL + Q`
+* Dir diff inside vim : https://github.com/will133/vim-dirdiff
 ### Compare files in vim : `vimdiff file1 fil2`
 * Next diff `]c`
 * Previous diff `[c`
