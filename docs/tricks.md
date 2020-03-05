@@ -12,6 +12,9 @@
 * send data to a udp port : `echo "data" | nc -u <ip> <port>`
 * How to know if a port is in use or not : `lsof -i | grep <port>`
 
+## Compilation
+* Get the symbols from a compiled file : `strings`
+* Get the libraries needed for an executable : `ldd`
 
 ## Misc
 * Know the version of the OS : `cat /etc/<os name>`
@@ -19,6 +22,7 @@
 * Know the list of installed paquets : `yum list installed`
 * Know the content of a tar : `tar -tf <file>`
 * Allow to mount usb key : `modprobe usb-storage`
+
 ### Qwerty --> azerty
 * From console : `loadkeys fr`
 * From graphic user interface console : `setxkbmap -layout fr`
@@ -26,6 +30,7 @@
 ## VIM
 * Exit from a `CTRL + S` : `CTRL + Q`
 * Dir diff inside vim : https://github.com/will133/vim-dirdiff
+
 ### Compare files in vim : `vimdiff file1 fil2`
 * Next diff `]c`
 * Previous diff `[c`
