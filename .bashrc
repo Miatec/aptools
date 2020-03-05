@@ -1,6 +1,8 @@
 #echo "Setting aliases..."
 alias ls='ls --color'
 alias ll='ls -la'
+alias env='env | sort'
+alias bashrc='source ~/.bashrc'
 
 # export proxyAdr=internet.corp.thales
 # export proxyPort=8080
@@ -24,24 +26,8 @@ function setTabTitle() {
 }
 
 
-
-
-
-function cdgr()
-{
-	source /home/s0068661/.scripts/cd_git_repository.bsh > /dev/null
-}
-
-function meld_()
-{
-	# Putain de bug de merde!!!!
-	# https://bugzilla.redhat.com/show_bug.cgi?id=1117812
-	export LANG=en_US.utf8
-	meld "$@"
-}
-
 # always display ls -l for result for find.
-function llfind()
+function llfind()	
 {
 	find $@ -exec ls -l {} \;
 }
@@ -111,4 +97,3 @@ function tarzfoldernow()
 }
 
 alias bashrc='source ~/.bashrc'
-
