@@ -96,4 +96,8 @@ function tarzfoldernow()
 	return $tarRes
 }
 
+function hisgrep(){
+	history | grep $@
+}
+
 alias bashrc='source ~/.bashrc'
