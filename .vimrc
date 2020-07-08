@@ -28,7 +28,7 @@ function! ShotcutsToggle()
         quit
         let g:quickfix_is_open = 0
     else
-        40vsp ~/.scripts/aptools/vim_shortcuts 
+        40vsp ~/.aptools/vim_shortcuts 
         let g:quickfix_is_open = 1
     endif
 endfunction
