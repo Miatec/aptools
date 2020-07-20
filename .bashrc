@@ -106,6 +106,11 @@ then
     function hisgrep(){
   	  history | grep $@
     }
+
+   function timestamp2date()
+   {
+   	 perl -le 'print scalar localtime $ARGV[0]' $@
+   }
   
     alias bashrc='source ~/.bashrc'
     alias cd..='cd ..'
