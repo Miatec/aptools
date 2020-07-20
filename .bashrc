@@ -115,6 +115,7 @@ then
     alias bashrc='source ~/.bashrc'
     alias cd..='cd ..'
     alias cd...='cd ../..'
+    alias gti='git' # because I do way too much this mistake
 else 
   echo "aptools already activated"
   
