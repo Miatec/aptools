@@ -1,0 +1,142 @@
+#!/bin/bash
+
+ function handleFile()
+ {
+ 
+   fullPath=$1
+  file=$2
+  year_now=$3
+  month_now=$4
+  day_now=$5
+  
+  yearFromFile=$(echo $file | cut -c15-18)
+  
+  monthString=$(echo $file | cut -c19-20)
+  monthFromFile=${monthString#0}
+  
+  dayString=$(echo $file | cut -c21-22)
+  dayFromFile=${dayString#0}
+  
+  
+
+	echo "$file File date = $yearFromFile $monthFromFile $dayFromFile"
+	
+	echo "    today = $year_now $month_now $day_now"
+	
+	nbDays=$(python -c "from datetime import date; print (date($year_now,$month_now,$day_now)-date($yearFromFile,$monthFromFile,$dayFromFile)).days" 2>/dev/null)
+	echo "    Difference de jours = $nbDays"
+
+	if [ -z ${nbDays+x} ] 
+	then
+		echo "nbDays unset for $file"
+		continue
+	fi
+
+	if [ "$nbDays" -eq "$nbDays" ] 2>/dev/null;
+	then
+		echo ""
+	else
+		echo "nbDays unset for $file (not a number)"
+		continue
+	fi
+
+ 
+  if [ $nbDays -gt 7 ]
+  then     
+    if [ $nbDays -gt 31 ]
+    then
+      if [ $nbDays -gt 365 ]
+      then
+        # older than a year, we keep only first january.
+        if [ $dayFromFile = 1 ] && [ $monthFromFile = 1 ]
+        then
+          echo "---- $file premier janvier on garde"
+        else
+          echo "Deleting $fullPath"
+          rm $fullPath
+        fi
+      else
+        # older than a month, newer than a year, we keep the first of each month
+        if [ $dayFromFile = 1 ]
+        then
+          echo "---- $file  premier du mois on garde"
+        else
+          echo "Deleting $fullPath"
+          rm $fullPath
+        fi
+      fi
+    else
+      # entre 7 et 31 jours, on en garde un par semaine, le 1, 7, 14, 21 et 28 du mois
+      case $dayFromFile in
+      1) echo "---- $file On garde  1";;
+      7) echo "---- $file On garde  7";;
+      14) echo "---- $file On garde  14";;
+      21) echo "---- $file On garde  21";;
+      28) echo "---- $file On garde  28";;
+      *)
+          echo "Deleting $fullPath"
+          rm $fullPath 
+          continue;;
+      esac
+    fi
+    
+  else
+    echo "---- $file on garde (- de 7 jours)"
+  fi
+  
+}
+ 
+function handleAllFile()
+{ 
+  allDates=$1
+  today=$(date +%Y%m%d)
+  
+  year_now=$(date +%Y)
+  
+  month_now=$(date +%m)
+  month_int=${month_now#0}
+  
+  day_now=$(date +%d)
+  day_int=${day_now#0}
+
+  echo "Today is $today"
+  mkdir toto
+  for file in "${allDates[@]}"
+  do
+    touch $file
+  	handleFile $file $file $year_now $month_int $day_int
+  done
+}
+ 
+ 
+declare -a allDates
+i=0
+for year in 2019 2020
+do
+	for month in 0{1..9} {10..12}
+	do
+    for day in 0{1..9} {10..31}
+		do
+			#echo "date = $year $month $day"
+			allDates[$i]="gitlab-backup-$year$month$day.tar"
+			i=$i+1
+		done
+	done
+done
+
+#echo ${allDates[@]}
+
+today=$(date +%Y%m%d)
+
+year_now=$(date +%Y)
+
+month_now=$(date +%m)
+month_int=${month_now#0}
+
+day_now=$(date +%d)
+day_int=${day_now#0}
+
+
+#handleFile "gitlab-backup-20200102.tar" 2020 07 24
+handleAllFile $allDates
+
