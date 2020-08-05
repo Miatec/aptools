@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+file=$1
+firstLine=$2
+lastLine=$3
+
+outputFile=${file}.extract
+
+#echo "ed -n '$firstLine ,${lastLine}p' $file >> $outputFile"
+echo "Exporting line $firstLine to ${lastLine} from $file into $outputFile"
+sed -n "${firstLine} ,${lastLine}p" $file >> $outputFile
+
