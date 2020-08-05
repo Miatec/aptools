@@ -106,10 +106,16 @@ then
     function hisgrep(){
   	  history | grep $@
     }
+
+   function timestamp2date()
+   {
+   	 perl -le 'print scalar localtime $ARGV[0]' $@
+   }
   
     alias bashrc='source ~/.bashrc'
     alias cd..='cd ..'
     alias cd...='cd ../..'
+    alias gti='git' # because I do way too much this mistake
 else 
   echo "aptools already activated"
   
