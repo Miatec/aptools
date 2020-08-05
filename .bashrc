@@ -1,6 +1,6 @@
 #! /bin/bash
 
-
+APTOOLS_HOME=~/.aptools/
 if [ -z ${APTOOLS_LOADED+x} ]
 then 
 
@@ -10,6 +10,7 @@ then
     alias ll='ls -la'
     alias env='env | sort'
     alias bashrc='source ~/.bashrc'
+    alias printenvpretty='$APTOOLS_HOME/print_env.bsh'
   
     # export proxyAdr=internet.corp.thales
     # export proxyPort=8080
@@ -22,7 +23,7 @@ then
   
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
     export LESS=' -R '
-    export MYVIMRC=~/.aptools/.vimrc 
+    export MYVIMRC=$APTOOLS_HOME/.vimrc 
   
     function setTabTitle() {
       if [[ -z "$ORIG" ]]; then
@@ -112,6 +113,11 @@ then
    	 perl -le 'print scalar localtime $ARGV[0]' $@
    }
   
+    # Set history of bash to an unlimited size
+    HISTSIZE= 
+    HISTFILESIZE=
+
+
     alias bashrc='source ~/.bashrc'
     alias cd..='cd ..'
     alias cd...='cd ../..'
