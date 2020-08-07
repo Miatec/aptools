@@ -1,3 +1,17 @@
+# Table of Content
+- [Linux](#linux)
+  * [Bash](#bash)
+  * [Network](#network)
+  * [Compilation](#compilation)
+  * [Misc](#misc)
+    + [Qwerty --> azerty](#qwerty-----azerty)
+  * [VIM](#vim)
+    + [Compare files in vim : `vimdiff file1 fil2`](#compare-files-in-vim----vimdiff-file1-fil2-)
+- [Windows](#windows)
+  * [And a table of contents](#and-a-table-of-contents)
+  * [On the right](#on-the-right)
+
+
 # Linux
 ## Bash
 * Create a file with a specific type : `mknode`
