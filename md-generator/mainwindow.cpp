@@ -43,7 +43,7 @@ QString MainWindow::toMd(const QString & plainText) const
     QString res(plainText);
 
 
-    res.replace("De :", "**De :**");
+    res.replace("De :", "----\n**De :**");
     res.replace("Envoyé :", "**Envoyé :**");
     res.replace("À :", "**À :**");
     res.replace("Cc :", "**Cc :**");
