@@ -18,12 +18,14 @@ public:
 
 public slots:
     void handleConvert();
+    void handleTabConvert();
     void handleClear();
     void handleCopy();
 
 private:
     Ui::MainWindow *ui;
     QString toMd(const QString & plainText) const;
+    QString tabToMd(const QString & plainText) const;
 
 };
 #endif // MAINWINDOW_H

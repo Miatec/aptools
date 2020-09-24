@@ -49,6 +49,13 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="m_btnTabConvert">
+          <property name="text">
+           <string>tab --&gt; md</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="m_btnCopy">
           <property name="text">
            <string>Copy</string>
