@@ -112,10 +112,15 @@ then
    {
    	 perl -le 'print scalar localtime $ARGV[0]' $@
    }
+
   
     # Set history of bash to an unlimited size
     HISTSIZE= 
     HISTFILESIZE=
+
+
+    # Load prefered color for terminal
+    xrdb $APTOOLS_HOME/.Xresources
 
 
     alias bashrc='source ~/.bashrc'
