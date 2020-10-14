@@ -117,6 +117,60 @@ then
     # Set history of bash to an unlimited size
     HISTSIZE= 
     HISTFILESIZE=
+   
+    function tgz()
+   {
+	   folder=$1
+
+	   if test ! -d $folder
+	   then
+		   echo "$folder n'est pas un dossier"
+		   return -1
+	   fi
+
+	   archivaName=$1.tgz
+
+	   tar -czf $archivaName $folder
+	   tarRes=$?
+
+          if [[ "$tarRes" == "0" ]]
+          then
+                  echo "[SUCCESS] $folder compressed in $archivaName"
+          else
+                  echo "[ FAIL  ] compression of $folder failed"
+		  return -2
+          fi
+
+
+	  return 0
+   }
+
+   function untgz()
+   {
+	   archiva=$1
+           if test ! -f $archiva
+           then
+                   echo "$archiva n'existe pas"
+                   return -1
+           fi
+
+
+	   tar -xzf $archiva
+
+          if [[ "$tarRes" == "0" ]]
+          then
+		  echo "[SUCCESS] $archiva  uncompressed in $(pwd)"
+          else
+                  echo "[ FAIL  ] uncompression of $archiva failed"
+                  return -2
+          fi
+
+
+          return 0
+
+
+   }
+
 
 
     # Load prefered color for terminal

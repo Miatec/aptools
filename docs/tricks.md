@@ -1,3 +1,17 @@
+# Table of Content
+- [Linux](#linux)
+  * [Bash](#bash)
+  * [Network](#network)
+  * [Compilation](#compilation)
+  * [Misc](#misc)
+    + [Qwerty --> azerty](#qwerty-----azerty)
+  * [VIM](#vim)
+    + [Compare files in vim : `vimdiff file1 fil2`](#compare-files-in-vim----vimdiff-file1-fil2-)
+- [Windows](#windows)
+  * [And a table of contents](#and-a-table-of-contents)
+  * [On the right](#on-the-right)
+
+
 # Linux
 ## Bash
 * Create a file with a specific type : `mknode`
@@ -22,6 +36,8 @@
 * Know the list of installed paquets : `yum list installed`
 * Know the content of a tar : `tar -tf <file>`
 * Allow to mount usb key : `modprobe usb-storage`
+* how to demangle function name in GDB : `maint demangle _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc`
+
 
 ### Qwerty --> azerty
 * From console : `loadkeys fr`
