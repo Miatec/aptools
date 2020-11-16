@@ -18,6 +18,12 @@
 * `realpath` ~ `readlink -e`
 * How to know the last mounted USB : `ls -lrt /dev/sd* | tail -1`
 * Get Current date : `currentDate=$(date +%Y%m%d_%H%M%S)`
+* Converte timestamp to date : `date -d @<timestamp>`
+* Extract lines from a huge file : `sed -n ' <line start>,<line end>q' <full file> > <extractFile>`
+
+## Git
+* Revenir au dépôt brut : `git clean -xfd`
+* Half-GUI git tool : `tig`
 
 ## Network
 * Listen to a tcp port : `nc -l <port>`
@@ -33,11 +39,23 @@
 ## Misc
 * Know the version of the OS : `cat /etc/<os name>`
 * Know glibc used by rpmbuild : `rpm -q glibc` 
+* List all dependancies of a rpm : `rpm -qpR <rpm file>`
 * Know the list of installed paquets : `yum list installed`
+* Know the list of repositories available : `yum repolist all`
 * Know the content of a tar : `tar -tf <file>`
 * Allow to mount usb key : `modprobe usb-storage`
 * how to demangle function name in GDB : `maint demangle _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc`
+* Search for a package name from a software name : `sudo apt-cache search <name>`
+* Documentation path : `/usr/share/doc/cpp`
+* List all permanent mountpoints : `less /etc/fstab`
+* List all current mountpoints : `less /etc/mtab`
+* Measure the execution time of a command : `time <command>` 
+* Assign a command on a specific CPU : `tasket 0x<cpunumber> <command>` 
+* get information about the CPU : `lscpu` or  `cat /proc/cpuinfo`
+* Get the size of a file (scriptable) : `wc -c <file>` 
 
+## Sonar
+* launch sonar : `sonar-scanner -Dsonar.host.url=http://ip:port -Dsonar.sources=. -Dsonar.projectKey=<projectKey>`
 
 ### Qwerty --> azerty
 * From console : `loadkeys fr`
@@ -55,3 +73,9 @@
 
 # Windows
 ... Hope this will remain empty =)
+
+# Others
+## Dependency Managers
+* archiva
+* sonatype nexus
+* artifactory
