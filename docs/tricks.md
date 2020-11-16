@@ -1,15 +1,19 @@
-# Table of Content
+# <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents</a></i></small>
 - [Linux](#linux)
   * [Bash](#bash)
+  * [Git](#git)
   * [Network](#network)
   * [Compilation](#compilation)
   * [Misc](#misc)
+  * [Sonar](#sonar)
     + [Qwerty --> azerty](#qwerty-----azerty)
   * [VIM](#vim)
     + [Compare files in vim : `vimdiff file1 fil2`](#compare-files-in-vim----vimdiff-file1-fil2-)
 - [Windows](#windows)
-  * [And a table of contents](#and-a-table-of-contents)
-  * [On the right](#on-the-right)
+- [Others](#others)
+  * [Dependency Managers](#dependency-managers)
+
+
 
 
 # Linux
