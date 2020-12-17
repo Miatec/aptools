@@ -1,3 +1,6 @@
+[TOC]
+
+
 # Linux
 ## Bash
 * Create a file with a specific type : `mknode`
