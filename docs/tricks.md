@@ -1,3 +1,5 @@
+[TOC]
+
 # <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents</a></i></small>
 - [Linux](#linux)
   * [Bash](#bash)
