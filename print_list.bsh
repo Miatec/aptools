@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+LIST_VAR=$1
+SEPARATOR=':'
+
+if [[ "$LIST_VAR" -eq "" ]]
+then
+	echo "This list is empty."
+else
+	echo $LIST_VAR | tr $SEPARATOR '\n'
+fi
+
