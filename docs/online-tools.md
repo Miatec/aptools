@@ -10,3 +10,9 @@
 
 # Cheat sheets
 * https://www.cheatography.com/
+
+# Documentation
+## CPP Guidelines
+* C++ Core Guidelines : https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+* Google : https://google.github.io/styleguide/cppguide.html
+## Python Guidelines : https://www.python.org/dev/peps/pep-0008/
